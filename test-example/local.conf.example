@@ -1,0 +1,23 @@
+# Beispiel: Wichtigste Settings in build-rpi/conf/local.conf
+
+# === BOARD CONFIGURATION ===
+MACHINE = "raspberrypi4"
+DISTRO = "poky"
+
+# === BUILD OPTIMIZATION ===
+BB_NUMBER_THREADS = "4"          # parallel threads (für deinen PC anpassen)
+PARALLEL_MAKE = "-j 4"           # parallel make jobs
+
+# === PACKAGES / FEATURES ===
+IMAGE_INSTALL:append = " hello-world"   # dein Custom-Package
+
+# === OPTIONAL: SSH & Development ===
+EXTRA_IMAGE_FEATURES = "debug-tweaks"   # root ohne Passwort (nur zum Testen!)
+IMAGE_FEATURES:append = " ssh-server-openssh"
+
+# === OPTIONAL: Größe reduzieren ===
+# IMAGE_ROOTFS_EXTRA_SPACE = "0"
+# INHERIT += "rm_work"
+
+# === LOGGING (debugging) ===
+# BB_VERBOSE = "1"

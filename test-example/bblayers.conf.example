@@ -1,0 +1,12 @@
+# Beispiel: Wie bblayers.conf aussieht, nachdem man den Layer hinzugefügt hat
+# Datei: build-rpi/conf/bblayers.conf
+
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBLAYERS ?= " \
+  /home/lok/yocto/poky/meta \
+  /home/lok/yocto/poky/meta-poky \
+  /home/lok/yocto/poky/meta-yocto-bsp \
+  /home/lok/yocto/meta-raspberrypi \
+  /home/lok/yocto/meta-custom \
+"
