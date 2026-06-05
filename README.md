@@ -1,5 +1,15 @@
 # Yocto Crash Kurs: Raspberry Pi
 
+## Kurz-Anleitung
+
+1. Abhängigkeiten installieren.
+2. Poky und den Raspberry-Pi-Layer klonen.
+3. Build-Umgebung starten: `source oe-init-build-env build-rpi`.
+4. In `conf/local.conf` `MACHINE = "raspberrypi4"` setzen.
+5. In `conf/bblayers.conf` `meta-raspberrypi` eintragen.
+6. Image bauen: `bitbake core-image-minimal`.
+7. Image auf SD-Karte schreiben oder mit QEMU testen.
+
 ## Was ist Yocto?
 Automatisiertes Build-System für embedded Linux. Du beschreibst, was du willst → Yocto generiert komplettes Linux-Image.
 
@@ -114,6 +124,10 @@ bitbake core-image-minimal
 | **BSP**       | Board Support Package (Board-spezifische Anpassungen) |
 | **rootfs**    | Root Filesystem (Linux auf der Hardware)              |
 | **wic**       | Disk Image Format (direkt auf SD-Karte)               |
+
+## Speicherdebugging-Tools
+- `heaptrack` zeigt, wo Speicher allokiert wird, und hilft beim Finden von Leaks und hohen Peaks.
+- `massif` ist das Valgrind-Tool für Heap-Wachstum und Speicherverbrauch über die Zeit.
 
 ## Nächste Schritte
 - `bitbake -k -c build core-image-minimal` (k = weiter bei Fehlern)
